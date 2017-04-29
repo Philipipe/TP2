@@ -8,4 +8,32 @@ public class AddOn extends Element {
         
     }
     
+    @Override
+    public String getDescription() {
+
+        String etatRace, etatArmure, etatAddOn;
+
+        etatArmure = (armure == 0) ? "Pas d'armure" : "A une armure";
+        
+        switch (race) {
+
+            case TERRAN:
+                etatRace = "Terran";
+                break;
+
+            case ZERG:
+                etatRace = "Zerg";
+                break;
+
+            default:
+                etatRace = "Protoss";
+                break;
+
+        }
+
+        return "ID: " + id + ", Nom: " + nom + ", Race: " + etatRace + ", PV: " + pv + ", " + etatArmure
+                + ", Coûts de production: " + coutMinerai;
+
+    }
+    
 }

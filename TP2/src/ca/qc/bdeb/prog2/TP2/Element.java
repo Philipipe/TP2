@@ -33,4 +33,22 @@ public abstract class Element {
         
     }
     
+    public int getID() {
+        
+        return id;
+        
+    }
+    
+    public String getNom() {
+        
+        return nom;
+        
+    }
+    
+    public String getDescription() {
+        
+        return "";
+        
+    }
+    
 }

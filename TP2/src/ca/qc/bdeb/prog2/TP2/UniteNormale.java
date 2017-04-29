@@ -8,4 +8,34 @@ public class UniteNormale extends Unite {
         
     }
     
+    @Override
+    public String getDescription() {
+
+        String etatRace, etatArmure, etatAuSol;
+
+        etatArmure = (armure == 0) ? "Pas d'armure" : "A une armure";
+
+        etatAuSol = (auSol) ? "Terrestre" : "Volant";
+
+        switch (race) {
+
+            case TERRAN:
+                etatRace = "Terran";
+                break;
+
+            case ZERG:
+                etatRace = "Zerg";
+                break;
+
+            default:
+                etatRace = "Protoss";
+                break;
+
+        }
+
+        return "ID: " + id + ", Nom: " + nom + ", Race: " + etatRace + ", PV: " + pv + ", " + etatArmure
+                + ", Dommages: " + dommage + ", Coûts de production: " + coutMinerai + ", " + etatAuSol;
+
+    }
+    
 }

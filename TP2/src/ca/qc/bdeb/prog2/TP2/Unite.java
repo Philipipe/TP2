@@ -2,7 +2,7 @@ package ca.qc.bdeb.prog2.TP2;
 
 public abstract class Unite extends Element {
     
-    protected int bouclier, dommage;
+    protected int dommage;
     
     protected boolean auSol;
     
