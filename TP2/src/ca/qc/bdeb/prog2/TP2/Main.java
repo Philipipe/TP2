@@ -80,51 +80,98 @@ public class Main {
 
     public static void afficher(String type, ArrayList<Element> elementListe) {
         
-        boolean partie = false;
+        Scanner read = new Scanner(System.in);
         
-        switch (type) {
+        int page = 1;
+        
+        int pagesTot = Math.ceil(elementListe.size() / 5);
+        
+        do {
+            
+            String choix;
+        
+            boolean partie = false;
+        
+            switch (type) {
 
-            case "e":
+                case "e":
 
-                menu(partie);
+                    menu(partie);
                 
-                for (int i = 0; i < 5; i++) {
+                    for (int i = page*5 - 5; i < 5; i++) {
                     
-                    System.out.print("║ - ");
+                        System.out.print("║ - ");
                     
-                    System.out.println((elementListe.get(i)).getDescription());
+                        System.out.println((elementListe.get(i)).getDescription());
                     
-                }
+                    }
                 
-                System.out.println("║\n║ ");
+                    System.out.println("║\n║ ");
                 
-                if (elementListe.size() > 5) {
+                    if (elementListe.size() > 5) {
                     
-                    System.out.println(" Pages : ");
+                        System.out.print(" Pages : ");
                     
-                    for (int i = 0; i < Math.ceil(elementListe.size() / 5) || i < 10; i++) {
+                        for (int i = page; i <= pagesTot || i < 10; i++) {
+                            
+                            if (i = page) {
+                                
+                                System.out.print("{" + i + "} ");
+                                
+                            }
                     
-                        System.out.println("[" + i + 1 + "] ");
+                            else {
+                                
+                                System.out.print("[" + i + "] ");
+                                
+                            }
+                            
+                            // Pages : {1} [2] [3] [4] [5] [6] [7] [8] [9] [10] ... [22]
+                            // Pages :  1   1   1   1   1   6   6   6   6   6   11
+                            
+                            // 5*Math.ceil((page/5)-1) + 1
+                            
+                            // Pages :  1   1   1   1   1   1   2   3   4   5   6   7   7   7   7   7   7
+                            
+                            // 
+                    
+                        }
+                    
+                        if (Math.ceil(elementListe.size() / 5) > 10) {
+                        
+                            System.out.print("... [" + Math.ceil(elementListe.size() / 5) + "]");
+                        
+                        }
                     
                     }
                     
-                    if (Math.ceil(elementListe.size() / 5) > 10) {
+                    partie = true;
+                    
+                    menu(partie);
+                    
+                    choix = read.nextLine();
+                    
+                    if (choix != "q") {
                         
-                        System.out.println("... [" + Math.ceil(elementListe.size() / 5) + "]");
+                        if (Integer.parseInt(choix) <= pageTot) {
+                            
+                            page = Integer.parseInt(choix);
+                            
+                        }
                         
                     }
-                    
-                }
                 
-                break;
+                    break;
 
-            case "u":
-                break;
+                case "u":
+                    break;
 
-            case "s":
-                break;
+                case "s":
+                    break;
 
-        }
+            }
+            
+        } while(choix != "q");
 
     }
 
