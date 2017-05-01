@@ -133,7 +133,11 @@ public class Main {
                             
                             // Pages :  1   1   1   1   1   1   2   3   4   5   6   7   7   7   7   7   7
                             
-                            // 
+                            // Math.ceil(Math.atan(page) + 1)
+
+// => Pages : 1, 1, 1, ..., 1, 2, 3, 4, 5, 5, 5, 5, ..., 5
+
+//if (page > 5 || page < pageTot - 5)
                     
                         }
                     
